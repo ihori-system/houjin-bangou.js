@@ -71,3 +71,25 @@ describe('findByTimeRangeV4', () => {
     expect(actual.corporation.length).toEqual(2)
   })
 })
+
+describe('findByNameV4', () => {
+  test('find by name', async () => {
+    undici.request.mockReturnValue(Promise.resolve({
+      body: {
+        text: () => {
+          return Promise.resolve(`
+<?xml version="1.0" encoding="UTF-8"?>
+<corporations>
+  <corporation>
+    <corporateNumber>8000012010038</corporateNumber>
+  </corporation>
+</corporations>
+          `)
+        }
+      }
+    }))
+    const client = new HoujinBangouClient({ applicationId: 'xxxxx' })
+    const actual = await client.findByNameV4('デジタル庁')
+    expect(actual.corporation.corporateNumber).toEqual(8000012010038)
+  })
+})

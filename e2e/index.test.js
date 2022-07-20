@@ -28,3 +28,11 @@ describe('findByTimeRangeV4', () => {
     expect(actual.corporation.length).toEqual(2000)
   })
 })
+
+describe('findByNameV4', () => {
+  test('find a corporation', async () => {
+    const client = new HoujinBangouClient({ applicationId: process.env.APPLICATION_ID })
+    const actual = await client.findByNameV4('デジタル庁')
+    expect(actual.corporation.corporateNumber).toEqual(8000012010038)
+  })
+})
