@@ -31,7 +31,7 @@ export interface Corporation {
   /**
    * 国内所在地イメージID
    */
-  addressImageId: string
+  addressImageId: number | null
   /**
    * 国外所在地
    */
