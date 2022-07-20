@@ -3,18 +3,25 @@
  * [API Document](https://www.houjin-bangou.nta.go.jp/webapi/)
  */
 export class HoujinBangouClient {
-  /**
-   * 
-   * @param options APIクライアントのオプション
-   */
   constructor(options: HoujinBangouClientOption)
-
-  findByCorporateNumberV4(corporateNumbers: string[]): Promise<Corporations>
-  findByCorporateNumberV4Raw(corporateNumbers: string[]): Promise<unknown>
-  findByTimeRangeV4(from: Date, to: Date): Promise<Corporations>
-  findByTimeRangeV4Raw(from: string, to: string): Promise<unknown>
-  findByNameV4(name: string): Promise<Corporations>
-  findByNameV4Raw(name: string): Promise<unknown>
+  /**
+   * 法人番号を指定して情報を取得
+   * @param options オプション
+   */
+  findByCorporateNumberV4(options: FindByCorporateNumberV4Option): Promise<Corporations>
+  findByCorporateNumberV4Raw(options: FindByCorporateNumberV4RawOption): Promise<unknown>
+  /**
+   * 取得期間を指定して情報を取得
+   * @param options オプション
+   */
+  findByTimeRangeV4(options: FindByTimeRangeV4Option): Promise<Corporations>
+  findByTimeRangeV4Raw(options: FindByTimeRangeV4RawOption): Promise<unknown>
+  /**
+   * 法人名を指定して情報を取得
+   * @param options オプション
+   */
+  findByNameV4(options: FindByNameV4Option): Promise<Corporations>
+  findByNameV4Raw(options: FindByNameV4RawOption): Promise<unknown>
 }
 
 /**
@@ -167,6 +174,173 @@ export interface Corporations {
    * 最終更新年月日
    */
   lastUpdateDate: string
+}
+
+export interface FindByCorporateNumberV4Option {
+  /**
+   * 法人番号
+   */
+  number: string[]
+  /**
+   * 変更履歴要否
+   */
+  history?: 0 | 1
+}
+
+
+export interface FindByCorporateNumberV4RawOption {
+  /**
+   * 法人番号
+   */
+  number: string[]
+  /**
+   * 変更履歴要否
+   */
+  history?: 0 | 1
+  /**
+   * 応答形式
+   */
+  type: '01' | '02' | '12'
+}
+
+export interface FindByTimeRangeV4Option {
+  /**
+   * 所在地
+   */
+  address?: string
+  /**
+   * 分割番号
+   */
+  divide?: number
+  /**
+   * 取得期間開始日
+   */
+  from: Date
+  /**
+   * 法人種別
+   */
+  kind?: '01' | '02' | '03' | '04'
+  /**
+   * 取得期間終了日
+   */
+  to: Date
+}
+
+export interface FindByTimeRangeV4RawOption {
+  /**
+   * 所在地
+   */
+  address?: string
+  /**
+   * 分割番号
+   */
+  divide?: number
+  /**
+   * 取得期間開始日
+   */
+  from: string
+  /**
+   * 法人種別
+   */
+  kind?: '01' | '02' | '03' | '04'
+  /**
+   * 取得期間終了日
+   */
+  to: string
+  /**
+   * 応答形式
+   */
+  type: '01' | '02' | '12'
+}
+
+export interface FindByNameV4Option {
+  /**
+   * 所在地
+   */
+  address?: string
+  /**
+   * 変更履歴
+   */
+  change?: 0 | 1
+  /**
+   * 登記記録の閉鎖等
+   */
+  close?: 0 | 1
+  /**
+    * 分割番号
+   */
+  divide?: number
+  /**
+   * 法人番号指定年月日開始日
+   */
+  from?: Date
+  /**
+   * 法人種別
+   */
+  kind?: '01' | '02' | '03' | '04'
+  /**
+   * 商号又は名称検索方式
+   */
+  mode?: 1 | 2
+  /**
+   * 商号又は名称
+   */
+  name: string
+  /**
+   * 商号又は名称検索対象
+   */
+  target?: 1 | 2 | 3
+  /**
+   * 法人番号指定年月日終了日
+   */
+  to?: Date
+}
+
+export interface FindByNameV4RawOption {
+  /**
+   * 所在地
+   */
+  address?: string
+  /**
+   * 変更履歴
+   */
+  change?: 0 | 1
+  /**
+   * 登記記録の閉鎖等
+   */
+  close?: 0 | 1
+  /**
+   * 分割番号
+   */
+  divide?: number
+  /**
+   * 法人番号指定年月日開始日
+   */
+  from?: string
+  /**
+   * 法人種別
+   */
+  kind?: '01' | '02' | '03' | '04'
+  /**
+   * 商号又は名称検索方式
+   */
+  mode?: 1 | 2
+  /**
+   * 商号又は名称
+   */
+  name: string
+  /**
+   * 商号又は名称検索対象
+   */
+  target?: 1 | 2 | 3
+  /**
+   * 法人番号指定年月日終了日
+   */
+  to?: string
+  /**
+   * 応答形式
+   */
+  type: '01' | '02' | '12'
 }
 
 export interface HoujinBangouClientOption {
