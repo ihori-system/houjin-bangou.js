@@ -1,6 +1,6 @@
 {
   "name": "@ihori-system/houjin-bangou",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "法人番号システム Web-API クライアント",
   "main": "index.js",
   "types": "index.d.ts",
