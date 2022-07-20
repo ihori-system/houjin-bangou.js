@@ -40,7 +40,8 @@
   },
   "standard": {
     "ignore": [
-      "docs/"
+      "docs/",
+      "index.d.ts"
     ]
   },
   "tsd": {

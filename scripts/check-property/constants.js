@@ -1,0 +1,40 @@
+module.exports.CORPORATION_PROPERTIES = [
+  'addressImageId',
+  'addressOutside',
+  'addressOutsideImageId',
+  'assignmentDate',
+  'changeCause',
+  'changeDate',
+  'cityCode',
+  'cityName',
+  'closeCause',
+  'closeDate',
+  'corporateNumber',
+  'correct',
+  'enName',
+  'enPrefectureName',
+  'enCityName',
+  'enAddressOutside',
+  'furigana',
+  'hihyoji',
+  'kind',
+  'latest',
+  'name',
+  'nameImageId',
+  'prefectureName',
+  'process',
+  'prefectureCode',
+  'postCode',
+  'sequenceNumber',
+  'streetNumber',
+  'successorCorporateNumber',
+  'updateDate'
+]
+
+module.exports.CORPORATIONS_PROPERTIES = [
+  'count',
+  'corporation',
+  'divideNumber',
+  'divideSize',
+  'lastUpdateDate'
+]
