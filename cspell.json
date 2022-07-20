@@ -1,0 +1,19 @@
+{
+  "ignoreWords": [
+    "btcnc"
+  ],
+  "words": [
+    "bangou",
+    "codepaths",
+    "furigana",
+    "hihyoji",
+    "horie",
+    "houjin",
+    "ihori",
+    "lcov",
+    "serializers",
+    "tsbuildinfo",
+    "undici",
+    "unmocked"
+  ]
+}
