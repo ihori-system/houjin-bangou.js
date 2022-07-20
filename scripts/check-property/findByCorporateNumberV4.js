@@ -10,7 +10,9 @@ require('dotenv').config()
 const client = new HoujinBangouClient({ applicationId: process.env.APPLICATION_ID })
 
 const main = async () => {
-  const data = await client.findByCorporateNumberV4(['8000012010038'])
+  const data = await client.findByCorporateNumberV4({
+    number: ['8000012010038']
+  })
 
   const diff = Object.keys(data).filter((k) => CORPORATIONS_PROPERTIES.includes(k) === false)
   if (diff.length > 0) {
