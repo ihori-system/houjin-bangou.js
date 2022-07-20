@@ -38,6 +38,24 @@ describe('findByCorporateNumberV4', () => {
     })).toThrow()
   })
 
+  test('no corporation', async () => {
+    undici.request.mockReturnValue(Promise.resolve({
+      body: {
+        text: () => {
+          return Promise.resolve(`
+<?xml version="1.0" encoding="UTF-8"?>
+<corporations></corporations>
+          `)
+        }
+      }
+    }))
+    const client = new HoujinBangouClient({ applicationId: 'xxxxx' })
+    const actual = await client.findByCorporateNumberV4({
+      number: ['8000012010038']
+    })
+    expect(actual.corporation).toEqual(null)
+  })
+
   test('find by corporate number', async () => {
     undici.request.mockReturnValue(Promise.resolve({
       body: {
@@ -46,7 +64,33 @@ describe('findByCorporateNumberV4', () => {
 <?xml version="1.0" encoding="UTF-8"?>
 <corporations>
   <corporation>
+    <addressImageId>12345</addressImageId>
+    <addressOutside>abcde</addressOutside>
+    <addressOutsideImageId>12345</addressOutsideImageId>
+    <assignmentDate>abcde</assignmentDate>
+    <changeCause>abcde</changeCause>
+    <changeDate>abcde</changeDate>
+    <cityCode>12345</cityCode>
+    <cityName>abcde</cityName>
+    <closeCause>12345</closeCause>
+    <closeDate>abcde</closeDate>
     <corporateNumber>8000012010038</corporateNumber>
+    <correct>12345</correct>
+    <enAddressOutside>abcde</enAddressOutside>
+    <enCityName>abcde</enCityName>
+    <enName>abcde</enName>
+    <enPrefectureName>abcde</enPrefectureName>
+    <furigana>abcde</furigana>
+    <hihyoji>12345</hihyoji>
+    <kind>12345</kind>
+    <latest>12345</latest>
+    <name>abcde</name>
+    <nameImageId>12345</nameImageId>
+    <prefectureName>abcde</prefectureName>
+    <prefectureCode>12345</prefectureCode>
+    <postCode>12345</postCode>
+    <streetNumber>abcde</streetNumber>
+    <successorCorporateNumber>12345</successorCorporateNumber>
   </corporation>
 </corporations>
           `)
@@ -68,7 +112,33 @@ describe('findByCorporateNumberV4', () => {
 <?xml version="1.0" encoding="UTF-8"?>
 <corporations>
   <corporation>
+    <addressImageId></addressImageId>
+    <addressOutside></addressOutside>
+    <addressOutsideImageId></addressOutsideImageId>
+    <assignmentDate></assignmentDate>
+    <changeCause></changeCause>
+    <changeDate></changeDate>
+    <cityCode></cityCode>
+    <cityName></cityName>
+    <closeCause></closeCause>
+    <closeDate></closeDate>
     <corporateNumber>8000012010038</corporateNumber>
+    <correct></correct>
+    <enAddressOutside></enAddressOutside>
+    <enCityName></enCityName>
+    <enName></enName>
+    <enPrefectureName></enPrefectureName>
+    <furigana></furigana>
+    <hihyoji></hihyoji>
+    <kind></kind>
+    <latest></latest>
+    <name></name>
+    <nameImageId></nameImageId>
+    <prefectureName></prefectureName>
+    <prefectureCode></prefectureCode>
+    <postCode></postCode>
+    <streetNumber></streetNumber>
+    <successorCorporateNumber></successorCorporateNumber>
   </corporation>
 </corporations>
           `)
