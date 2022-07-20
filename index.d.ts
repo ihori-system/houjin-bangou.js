@@ -35,39 +35,39 @@ export interface Corporation {
   /**
    * 国外所在地
    */
-  addressOutside: string
+  addressOutside: string | null
   /**
    * 国外所在地イメージID
    */
-  addressOutsideImageId: string
+  addressOutsideImageId: number | null
   /**
    * 法人番号指定年月日
    */
-  assignmentDate: string
+  assignmentDate: string | null
   /**
    * 変更事由の詳細
    */
-  changeCause: string
+  changeCause: string | null
   /**
    * 変更年月日
    */
-  changeDate: string
+  changeDate: string | null
   /**
    * 市区町村コード
    */
-  cityCode: number
+  cityCode: number | null
   /**
    * 国内所在地（市区町村）
    */
-  cityName: string
+  cityName: string | null
   /**
    * 登記記録の閉鎖等の事由
    */
-  closeCause: string
+  closeCause: number | null
   /**
    * 登記記録の閉鎖等年月日
    */
-  closeDate: string
+  closeDate: string | null
   /**
    * 法人番号
    */
@@ -75,51 +75,51 @@ export interface Corporation {
   /**
    * 訂正区分
    */
-  correct: number
-  /**
-   * 商号又は名称（英語表記）
-   */
-  enName: string
-  /**
-   * 国内所在地（都道府県）（英語表記）
-   */
-  enPrefectureName: string
-  /**
-   * 国内所在地（市町村丁目番地等）（英語表記）
-   */
-  enCityName: string
+  correct: number | null
   /**
    * 国外所在地（英語表記）
    */
-  enAddressOutside: string
+   enAddressOutside: string | null
+   /**
+   * 国内所在地（市町村丁目番地等）（英語表記）
+   */
+   enCityName: string | null
+  /**
+   * 商号又は名称（英語表記）
+   */
+  enName: string | null
+  /**
+   * 国内所在地（都道府県）（英語表記）
+   */
+  enPrefectureName: string | null
   /**
    * フリガナ
    */
-  furigana: string
+  furigana: string | null
   /**
    * 検索対象除外
    */
-  hihyoji: number
+  hihyoji: number | null
   /**
    * 法人種別
    */
-  kind: number
+  kind: number | null
   /**
    * 最新履歴
    */
-  latest: number
+  latest: number | null
   /**
    * 商号又は名称
    */
-  name: string
+  name: string | null
   /**
    * 商号又は名称イメージID
    */
-  nameImageId: string
+  nameImageId: number | null
   /**
    * 国内所在地（都道府県）
    */
-  prefectureName: string
+  prefectureName: string | null
   /**
    * 処理区分
    */
@@ -127,11 +127,11 @@ export interface Corporation {
   /**
    * 都道府県コード
    */
-  prefectureCode: number
+  prefectureCode: number | null
   /**
    * 郵便番号
    */
-  postCode: number
+  postCode: number | null
   /**
    * 一連番号
    */
@@ -139,11 +139,11 @@ export interface Corporation {
   /**
    * 国内所在地（丁目番地等）
    */
-  streetNumber: string
+  streetNumber: string | null
   /**
    * 承継先法人番号
    */
-  successorCorporateNumber: string
+  successorCorporateNumber: number | null
   /**
    * 更新年月日
    */
@@ -161,7 +161,7 @@ export interface Corporations {
   /**
    * 法人等要素
    */
-  corporation: Corporation | Corporation[]
+  corporation: Corporation | Corporation[] | null
   /**
    * 分割番号
    */
