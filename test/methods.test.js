@@ -46,6 +46,7 @@ describe('findByCorporateNumberV4', () => {
 <?xml version="1.0" encoding="UTF-8"?>
 <corporations>
   <corporation>
+    <addressImageId>12345</addressImageId>
     <corporateNumber>8000012010038</corporateNumber>
   </corporation>
 </corporations>
@@ -68,6 +69,7 @@ describe('findByCorporateNumberV4', () => {
 <?xml version="1.0" encoding="UTF-8"?>
 <corporations>
   <corporation>
+    <addressImageId></addressImageId>
     <corporateNumber>8000012010038</corporateNumber>
   </corporation>
 </corporations>
