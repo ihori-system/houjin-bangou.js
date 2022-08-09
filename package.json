@@ -28,7 +28,7 @@
   "homepage": "https://github.com/ihori-system/houjin-bangou.js#readme",
   "dependencies": {
     "fast-xml-parser": "^4.0.9",
-    "undici": "^5.8.1"
+    "undici": "^5.8.2"
   },
   "devDependencies": {
     "dotenv": "^16.0.1",
